@@ -3,12 +3,37 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{42289B58-BD4D-4A1E-BDEA-E8BC49EEE2EB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{A394123E-4F38-4A47-BD24-415661974976}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildingBlocks", "BuildingBlocks", "{2628933D-2429-4CC7-897E-FA54D77756F9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BackOffice", "BackOffice", "{DA299ED1-8EDD-4B0A-A14B-B082425B9AD2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BackOffice.Api", "Services\BackOfficeApi\BackOffice.Api.csproj", "{77F4CA22-7E75-46B8-BA6F-F0D5D8B95242}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{77F4CA22-7E75-46B8-BA6F-F0D5D8B95242}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77F4CA22-7E75-46B8-BA6F-F0D5D8B95242}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77F4CA22-7E75-46B8-BA6F-F0D5D8B95242}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77F4CA22-7E75-46B8-BA6F-F0D5D8B95242}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A394123E-4F38-4A47-BD24-415661974976} = {42289B58-BD4D-4A1E-BDEA-E8BC49EEE2EB}
+		{2628933D-2429-4CC7-897E-FA54D77756F9} = {42289B58-BD4D-4A1E-BDEA-E8BC49EEE2EB}
+		{DA299ED1-8EDD-4B0A-A14B-B082425B9AD2} = {A394123E-4F38-4A47-BD24-415661974976}
+		{77F4CA22-7E75-46B8-BA6F-F0D5D8B95242} = {DA299ED1-8EDD-4B0A-A14B-B082425B9AD2}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3B38AA81-F2B7-4C5C-B86A-367B8F41099E}
 	EndGlobalSection
 EndGlobal
