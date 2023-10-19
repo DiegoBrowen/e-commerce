@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace BackOffice.Api.Migrations
+namespace Admin.Api.Infrastructures.Migrations
 {
     /// <inheritdoc />
     public partial class InitialCreate : Migration

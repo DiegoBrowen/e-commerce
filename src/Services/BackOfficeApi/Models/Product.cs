@@ -1,4 +1,4 @@
-﻿namespace BackOffice.Api.Models;
+﻿namespace Admin.Api.Models;
 
 public class Product
 {

@@ -1,29 +1,17 @@
-using BackOffice.Api.Infrastructure;
-using Microsoft.EntityFrameworkCore;
+using Admin.Api.Providers;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
-
-builder.Services.AddDbContext<BackOfficeContext>(
-    options => options.UseSqlServer("name=ConnectionStrings:DefaultConnection"));
-
+builder.Services.AddEntityFramework();
 builder.Services.AddEndpointsApiExplorer();
-
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwagger();
+builder.RegisterDependencies();
 
 var app = builder.Build();
-
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
+app.UseSwaggerProvider();
 app.UseAuthorization();
-
 app.MapControllers();
-
 app.Run();

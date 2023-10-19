@@ -1,18 +1,18 @@
-﻿using BackOffice.Api.Infrastructure;
-using BackOffice.Api.Models;
+﻿using Admin.Api.Infrastructures;
+using Admin.Api.Models;
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace BackOffice.Api.Controllers
+namespace Admin.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class CategoriesController : ControllerBase
     {
-        private readonly BackOfficeContext _context;
+        private readonly AdminContext _context;
 
-        public CategoriesController(BackOfficeContext context)
+        public CategoriesController(AdminContext context)
         {
             _context = context;
         }
