@@ -80,11 +80,12 @@ namespace Admin.Api.Controllers
         // POST: api/Categories
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
+        [ProducesResponseType(StatusCodes.Status201Created)]
         public async Task<ActionResult<Category>> PostCategory(Category category)
         {
             if (_context.Categories == null)
             {
-                return Problem("Entity set 'BackOfficeContext.Categories'  is null.");
+                return Problem("Entity set 'AdminContext.Categories'  is null.");
             }
             _context.Categories.Add(category);
             await _context.SaveChangesAsync();

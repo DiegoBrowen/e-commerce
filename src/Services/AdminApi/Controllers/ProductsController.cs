@@ -87,7 +87,7 @@ namespace Admin.Api.Controllers
         {
             if (_context.Products == null)
             {
-                return Problem("Entity set 'BackOfficeContext.Products'  is null.");
+                return Problem("Entity set 'AdminContext.Products'  is null.");
             }
             _context.Products.Add(product);
             await _context.SaveChangesAsync();
