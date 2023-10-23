@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\BuildingBlocks\EventBus\EventBus.csproj" />
+    <ProjectReference Include="..\..\EventBus.IoC\EventBus.IoC.csproj" />
   </ItemGroup>
 
 </Project>
