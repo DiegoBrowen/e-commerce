@@ -20,7 +20,7 @@ public class EventBusRabbitMQService : IEventBus//, IDisposable
     public EventBusRabbitMQService(IRabbitMQPersistentConnection persistentConnection,
                                    ILogger<EventBusRabbitMQService> logger,
                                    IServiceProvider serviceProvider,
-                                   IEventBusSubscriptionsManager subsManager,
+                                   // IEventBusSubscriptionsManager subsManager,
                                    string queueName = null,
                                    int retryCount = 5
         )
@@ -71,11 +71,10 @@ public class EventBusRabbitMQService : IEventBus//, IDisposable
         var eventName = @event.GetType().Name;
 
         _logger.LogTrace("Creating RabbitMQ channel to publish event: {EventId} ({EventName})", @event.Id, eventName);
-
         using var channel = _persistentConnection.CreateModel();
-        _logger.LogTrace("Declaring RabbitMQ exchange to publish event: {EventId}", @event.Id);
 
-        channel.ExchangeDeclare(exchange: BROKER_NAME, type: "direct");
+        _logger.LogTrace("Declaring RabbitMQ exchange to publish event: {EventId}", @event.Id);
+        channel.ExchangeDeclare(exchange: BROKER_NAME, type: ExchangeType.Direct);
 
         var body = JsonSerializer.SerializeToUtf8Bytes(@event, @event.GetType(), s_indentedOptions);
 

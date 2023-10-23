@@ -11,7 +11,9 @@ public class DefaultRabbitMQPersistentConnection
 
     private readonly object _syncRoot = new();
 
-    public DefaultRabbitMQPersistentConnection(IConnectionFactory connectionFactory, ILogger<DefaultRabbitMQPersistentConnection> logger, int retryCount = 5)
+    public DefaultRabbitMQPersistentConnection(IConnectionFactory connectionFactory,
+                                               ILogger<DefaultRabbitMQPersistentConnection> logger,
+                                               int retryCount = 5)
     {
         _connectionFactory = connectionFactory ?? throw new ArgumentNullException(nameof(connectionFactory));
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
@@ -65,8 +67,7 @@ public class DefaultRabbitMQPersistentConnection
 
             policy.Execute(() =>
             {
-                _connection = _connectionFactory
-                        .CreateConnection();
+                _connection = _connectionFactory.CreateConnection();
             });
 
             if (IsConnected)

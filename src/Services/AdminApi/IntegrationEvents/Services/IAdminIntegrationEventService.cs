@@ -2,5 +2,7 @@
 
 public interface IAdminIntegrationEventService
 {
+    Task SaveEventAndCatalogContextChangesAsync(IntegrationEvent evt);
+
     Task PublishThroughEventBusAsync(IntegrationEvent evt);
 }

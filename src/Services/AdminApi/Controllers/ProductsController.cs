@@ -94,6 +94,7 @@ namespace Admin.Api.Controllers
 
             var productCreatedEvent = new ProductCreatedIntegrationEvent(product.Id, product.Name, product.Description, product.Price, product.Category.Id, product.Category.Name);
 
+            await _adminIntegrationEventService.SaveEventAndCatalogContextChangesAsync(productCreatedEvent);
             await _adminIntegrationEventService.PublishThroughEventBusAsync(productCreatedEvent);
             return CreatedAtAction("GetProduct", new { id = product.Id }, product);
         }
