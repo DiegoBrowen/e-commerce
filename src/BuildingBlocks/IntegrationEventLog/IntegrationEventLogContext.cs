@@ -1,7 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-
-namespace IntegrationEventLog;
+﻿namespace IntegrationEventLog;
 
 public class IntegrationEventLogContext : DbContext
 {

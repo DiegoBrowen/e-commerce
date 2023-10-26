@@ -1,7 +1,4 @@
-﻿using EventBus.Events;
-using System.Text.Json;
-
-namespace IntegrationEventLog;
+﻿namespace IntegrationEventLog;
 
 public class IntegrationEventLogEntry
 {

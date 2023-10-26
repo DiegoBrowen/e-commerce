@@ -1,4 +1,5 @@
-﻿using EventBusRabbitMQ;
+﻿using EventBus.Interfaces;
+using EventBusRabbitMQ;
 using IntegrationEventLog;
 using IntegrationEventLog.Services;
 using Microsoft.EntityFrameworkCore;
@@ -40,18 +41,18 @@ public static class BuildingBlokcsInjectorContainer
             return new DefaultRabbitMQPersistentConnection(factory, logger, retryCount);
         });
 
+        services.AddSingleton<IEventBusSubscriptionsManager, InMemoryEventBusSubscriptionsManager>();
         services.AddSingleton<IEventBus, EventBusRabbitMQService>(sp =>
         {
             //var subscriptionClientName = eventBusSection.GetRequiredValue("SubscriptionClientName");
             var subscriptionClientName = "Admin";
             var rabbitMQPersistentConnection = sp.GetRequiredService<IRabbitMQPersistentConnection>();
             var logger = sp.GetRequiredService<ILogger<EventBusRabbitMQService>>();
-            // var eventBusSubscriptionsManager = sp.GetRequiredService<IEventBusSubscriptionsManager>();
+            var eventBusSubscriptionsManager = sp.GetRequiredService<IEventBusSubscriptionsManager>();
             //var retryCount = eventBusSection.GetValue("RetryCount", 5);
             var retryCount = 5;
-            return new EventBusRabbitMQService(rabbitMQPersistentConnection, logger, sp, subscriptionClientName, retryCount);
+            return new EventBusRabbitMQService(rabbitMQPersistentConnection, logger, sp, eventBusSubscriptionsManager, subscriptionClientName, retryCount);
         });
-        //services.AddSingleton<IEventBusSubscriptionsManager, InMemoryEventBusSubscriptionsManager>();
         services.AddIntegrationServices();
     }
 

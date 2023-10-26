@@ -1,6 +1,7 @@
 ﻿global using EventBus;
 global using EventBus.Events;
 global using EventBus.Interfaces;
+global using Microsoft.Extensions.DependencyInjection;
 global using Microsoft.Extensions.Logging;
 global using Polly;
 global using Polly.Retry;

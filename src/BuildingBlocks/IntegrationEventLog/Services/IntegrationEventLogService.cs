@@ -1,7 +1,4 @@
-﻿using EventBus.Events;
-using Microsoft.EntityFrameworkCore;
-
-namespace IntegrationEventLog.Services;
+﻿namespace IntegrationEventLog.Services;
 
 public class IntegrationEventLogService : IIntegrationEventLogService, IDisposable
 {

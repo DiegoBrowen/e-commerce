@@ -1,7 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System.Transactions;
-
-namespace IntegrationEventLog;
+﻿namespace IntegrationEventLog;
 
 public class ResilientTransaction
 {

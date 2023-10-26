@@ -17,12 +17,6 @@ public partial class InMemoryEventBusSubscriptionsManager : IEventBusSubscriptio
 
     public void Clear() => _handlers.Clear();
 
-    public void AddDynamicSubscription<TH>(string eventName)
-        where TH : IDynamicIntegrationEventHandler
-    {
-        DoAddSubscription(typeof(TH), eventName, isDynamic: true);
-    }
-
     public void AddSubscription<T, TH>()
         where T : IntegrationEvent
         where TH : IIntegrationEventHandler<T>
@@ -49,22 +43,7 @@ public partial class InMemoryEventBusSubscriptionsManager : IEventBusSubscriptio
             throw new ArgumentException(
                 $"Handler Type {handlerType.Name} already registered for '{eventName}'", nameof(handlerType));
         }
-
-        if (isDynamic)
-        {
-            _handlers[eventName].Add(SubscriptionInfo.Dynamic(handlerType));
-        }
-        else
-        {
-            _handlers[eventName].Add(SubscriptionInfo.Typed(handlerType));
-        }
-    }
-
-    public void RemoveDynamicSubscription<TH>(string eventName)
-        where TH : IDynamicIntegrationEventHandler
-    {
-        var handlerToRemove = FindDynamicSubscriptionToRemove<TH>(eventName);
-        DoRemoveHandler(eventName, handlerToRemove);
+        _handlers[eventName].Add(SubscriptionInfo.Typed(handlerType));
     }
 
     public void RemoveSubscription<T, TH>()
@@ -106,12 +85,6 @@ public partial class InMemoryEventBusSubscriptionsManager : IEventBusSubscriptio
     {
         var handler = OnEventRemoved;
         handler?.Invoke(this, eventName);
-    }
-
-    private SubscriptionInfo FindDynamicSubscriptionToRemove<TH>(string eventName)
-        where TH : IDynamicIntegrationEventHandler
-    {
-        return DoFindSubscriptionToRemove(eventName, typeof(TH));
     }
 
     private SubscriptionInfo FindSubscriptionToRemove<T, TH>()

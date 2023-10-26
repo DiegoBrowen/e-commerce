@@ -19,13 +19,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventBusRabbitMQ", "Buildin
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Home", "Home", "{DDA6DD7B-F9A7-4CD7-86B9-0DAA6FC956E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Home.Api", "Services\Home.Api\Home.Api.csproj", "{1E011D75-6872-4E77-B5B5-9E4F9DA2D358}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Home.Api", "Services\Home.Api\Home.Api.csproj", "{1E011D75-6872-4E77-B5B5-9E4F9DA2D358}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegrationEventLog", "BuildingBlocks\IntegrationEventLog\IntegrationEventLog.csproj", "{A31C487F-CC8C-4791-B8ED-CB46B264CB9D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventBus.IoC", "BuildingBlocks\EventBus.IoC\EventBus.IoC.csproj", "{C8097C62-9907-4FF8-9CB0-4D810DA07ABA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Admin.Api", "Services\Admin.Api\Admin.Api.csproj", "{159BBDEC-D2C5-4136-B8ED-27BA4498B8C9}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{5828DBF3-F8FD-47CF-A53D-E47E690E951F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{159BBDEC-D2C5-4136-B8ED-27BA4498B8C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{159BBDEC-D2C5-4136-B8ED-27BA4498B8C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{159BBDEC-D2C5-4136-B8ED-27BA4498B8C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5828DBF3-F8FD-47CF-A53D-E47E690E951F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5828DBF3-F8FD-47CF-A53D-E47E690E951F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5828DBF3-F8FD-47CF-A53D-E47E690E951F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5828DBF3-F8FD-47CF-A53D-E47E690E951F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

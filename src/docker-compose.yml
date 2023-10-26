@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  home.api:
+    image: ${DOCKER_REGISTRY-}homeapi
+    build:
+      context: .
+      dockerfile: Services/Home.Api/Dockerfile
+
+  admin.api:
+    image: ${DOCKER_REGISTRY-}adminapi
+    build:
+      context: .
+      dockerfile: Services/Admin.Api/Dockerfile

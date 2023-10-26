@@ -8,9 +8,6 @@ public interface IEventBusSubscriptionsManager
 
     event EventHandler<string> OnEventRemoved;
 
-    void AddDynamicSubscription<TH>(string eventName)
-        where TH : IDynamicIntegrationEventHandler;
-
     void AddSubscription<T, TH>()
         where T : IntegrationEvent
         where TH : IIntegrationEventHandler<T>;
@@ -18,9 +15,6 @@ public interface IEventBusSubscriptionsManager
     void RemoveSubscription<T, TH>()
             where TH : IIntegrationEventHandler<T>
             where T : IntegrationEvent;
-
-    void RemoveDynamicSubscription<TH>(string eventName)
-        where TH : IDynamicIntegrationEventHandler;
 
     bool HasSubscriptionsForEvent<T>() where T : IntegrationEvent;
 
